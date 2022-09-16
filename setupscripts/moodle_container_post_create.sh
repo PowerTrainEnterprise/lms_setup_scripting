@@ -6,11 +6,15 @@ cp /moodle_docker_config.php /workspaces/moodle_container_instance/config.php
 echo "Custom Config File Copied!"
 
 echo "Starting Service: APACHE2"
-systemctl enable apache2
-#service apache2 start 
+#systemctl enable apache2
+service apache2 start 
 echo "APACHE2 Started"
 
 echo "Starting Service: postgresql"
-systemctl enable postgresql
-#service postgresql start
+#systemctl enable postgresql
+service postgresql start
 echo "postgresql Started"
+
+su postgres -c "CREATE USER root WITH PASSWORD 'rootUser321!';"
+su postgres -c "CREATE USER moodle WITH PASSWORD 'moodleBox!098';"
+su postgres -c "CREATE DATABASE moodle WITH OWNER moodle;"
