@@ -21,7 +21,7 @@ echo "postgresql Started"
 
 chmod -R 777 /moodledata
 
-psql postgres -c "CREATE USER root WITH PASSWORD 'root';"
-psql postgres -c "CREATE USER moodle WITH PASSWORD 'moodle';"
-psql postgres -c "CREATE DATABASE moodle WITH OWNER moodle;"
+su postgres psql -c "CREATE USER root WITH PASSWORD 'root';"
+#psql postgres -c "CREATE USER moodle WITH PASSWORD 'moodle';"
+#psql postgres -c "CREATE DATABASE moodle WITH OWNER moodle;"
 #psql moodle < /moodle_preconfigured_database.sql
