@@ -1,6 +1,10 @@
 #!/bin/bash
 echo "Moodle Container Instance Launched. Starting Post Create commands."
 
+echo "Copying CODESPACE_NAME."
+echo "https://"$CODESPACE_NAME".github.dev" >> /codespace_url.txt
+echo "Copied CODESPACE_NAME."
+
 echo "Copying Custom Config File."
 cp /moodle_docker_config.php /workspaces/moodle_container_instance/config.php
 echo "Custom Config File Copied!"
