@@ -18,7 +18,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = '{$host}';
-$CFG->dataroot  = '../../moodledata';
+$CFG->dataroot  = '/moodledata';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
