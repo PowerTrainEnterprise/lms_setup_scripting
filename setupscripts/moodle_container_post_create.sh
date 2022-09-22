@@ -2,7 +2,7 @@
 echo "Moodle Container Instance Launched. Starting Post Create commands."
 
 echo "Copying CODESPACE_NAME."
-echo "https://"$CODESPACE_NAME"-8081.github.dev" >> /codespace_url.txt
+echo "https://"$CODESPACE_NAME"-8081.githubpreview.dev" >> /codespace_url.txt
 echo "Copied CODESPACE_NAME."
 
 echo "Copying Custom Config File."
