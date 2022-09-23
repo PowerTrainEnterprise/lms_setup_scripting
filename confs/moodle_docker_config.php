@@ -17,11 +17,9 @@ $CFG->dboptions = array (
   'dbsocket' => '',
 );
 
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-$CFG->wwwroot = 'https://' . $_SERVER['HTTP_HOST'];
-} else {
-$CFG->wwwroot = 'http://' . $_SERVER['HTTP_HOST'];
-}
+$CFG->wwwroot = 'https://' . $_SERVER['HTTP_X_FORWARDED_HOST'];
+$CFG->sslproxy = 1;
+$CFG->reverseproxy = true;
 
 $CFG->dataroot  = '/moodledata';
 $CFG->admin     = 'admin';
