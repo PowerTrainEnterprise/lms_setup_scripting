@@ -8,10 +8,9 @@ echo "Copied CODESPACE_NAME."
 
 IFS='/'
 read -a strarr <<< "$GITHUB_REPOSITORY"
-$container_directory = ${strarr[1]}
 
 echo "Copying Custom Config File."
-cp /moodle_docker_config.php /workspaces/$container_directory/config.php
+cp /moodle_docker_config.php /workspaces/${strarr[1]}/config.php
 echo "Custom Config File Copied!"
 
 echo "Starting Service: APACHE2"
