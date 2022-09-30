@@ -5,9 +5,13 @@ echo "Copying CODESPACE_NAME."
 #echo "https://"$CODESPACE_NAME"-8081.githubpreview.dev" >> /codespace_url.txt
 echo "Copied CODESPACE_NAME."
 
-
+#update every instance of "moodle_container_instance" to the name of the current repo.
 IFS='/'
 read -a strarr <<< "$GITHUB_REPOSITORY"
+
+search = "moodle_container_instance"
+filename = "/etc/apache2/sites-enabled/000-default.conf"
+sed -i "s/$search/${strarr[1]}/" $filename
 
 echo "Copying Custom Config File."
 cp /moodle_docker_config.php /workspaces/${strarr[1]}/config.php
