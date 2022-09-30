@@ -9,9 +9,7 @@ echo "Copied CODESPACE_NAME."
 IFS='/'
 read -a strarr <<< "$GITHUB_REPOSITORY"
 
-$search = "moodle_container_instance"
-$filename = "/etc/apache2/sites-enabled/000-default.conf"
-sed -i "s/$search/${strarr[1]}/" $filename
+sed -i "s/'moodle_container_instance'/${strarr[1]}/" /etc/apache2/sites-enabled/000-default.conf
 
 echo "Copying Custom Config File."
 cp /moodle_docker_config.php /workspaces/${strarr[1]}/config.php
