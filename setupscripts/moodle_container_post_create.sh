@@ -28,7 +28,7 @@ echo "postgresql Started"
 chmod -R 777 /moodledata
 
 echo "Copying submodules."
-git submodule update --init
+#git submodule update --init
 echo "Copied submodules."
 
 su -c "psql -c \"CREATE USER root WITH PASSWORD 'root'\"" postgres
