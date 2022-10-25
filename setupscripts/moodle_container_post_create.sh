@@ -32,9 +32,11 @@ echo "Copying submodules."
 echo "Copied submodules."
 
 su -c "psql -c \"CREATE USER root WITH PASSWORD 'root'\"" postgres
+su -c "psql -c \"ALTER USER root WITH SUPERUSER\"" postgres
 su -c "psql -c \"CREATE USER moodle WITH PASSWORD 'moodle';\"" postgres
+su -c "psql -c \"ALTER USER moodle WITH SUPERUSER\"" postgres
 su -c "psql -c \"CREATE DATABASE moodle WITH OWNER moodle;\"" postgres
-su -c "pg_restore -d \"moodle\" -f \"/moodle_preconfigured_database.sql\"" postgres
+su -c "pg_restore -f \"/moodle_preconfigured_database.sql\"" postgres
 #su -c "psql -c \"moodle < /moodle_preconfigured_database.sql\"" postgres
 #su postgres psql -c "CREATE USER root WITH PASSWORD 'root';"
 #psql postgres -c "CREATE USER moodle WITH PASSWORD 'moodle';"
