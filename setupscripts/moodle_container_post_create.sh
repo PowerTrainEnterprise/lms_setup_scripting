@@ -36,7 +36,7 @@ su -c "psql -c \"ALTER USER root WITH SUPERUSER\"" postgres
 su -c "psql -c \"CREATE USER moodle WITH PASSWORD 'moodle';\"" postgres
 su -c "psql -c \"ALTER USER moodle WITH SUPERUSER\"" postgres
 su -c "psql -c \"CREATE DATABASE moodle WITH OWNER moodle;\"" postgres
-#su -c "pg_restore --create --exit-on-error --verbose --dbname=moodle /moodle_preconfigured_database.sql" postgres
+su -c "pg_restore -d moodle -U postgres -h localhost -p 5432 < /moodle_preconfigured_database.sql" postgres
 #su -c "pg_restore -f \"/moodle_preconfigured_database.sql\"" postgres
 #su -c "psql -c \"moodle < /moodle_preconfigured_database.sql\"" postgres
 #su postgres psql -c "CREATE USER root WITH PASSWORD 'root';"
