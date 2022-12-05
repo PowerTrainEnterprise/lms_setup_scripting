@@ -45,6 +45,7 @@ su -c "psql -c \"CREATE USER moodle WITH PASSWORD 'moodle';\"" postgres
 su -c "psql -c \"ALTER USER moodle WITH SUPERUSER\"" postgres
 su -c "psql -c \"CREATE DATABASE moodle WITH OWNER moodle;\"" postgres
 
+su -c "psql -c \"CREATE ROLE rsadmin WITH SUPERUSER;\"" postgres
 su -c "export PGPASSWORD='moodle'; pg_restore -d moodle -U moodle -h localhost -p 5432 < /moodle_preconfigured_database.sql" postgres
 
 #su -c "pg_restore -f \"/moodle_preconfigured_database.sql\"" postgres
