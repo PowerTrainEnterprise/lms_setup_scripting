@@ -39,6 +39,8 @@ echo "$CODESPACE_PRIVATE_SSH_KEY" > ~/.ssh/id_rsa_powertraininc_codespace
 chmod 600 ~/.ssh/id_rsa_powertraininc_codespace
 chmod 600 ~/.ssh/id_rsa_powertraininc_codespace.pub
 
+git submodule update --init
+
 su -c "psql -c \"CREATE USER root WITH PASSWORD 'root'\"" postgres
 su -c "psql -c \"ALTER USER root WITH SUPERUSER\"" postgres
 su -c "psql -c \"CREATE USER moodle WITH PASSWORD 'moodle';\"" postgres
