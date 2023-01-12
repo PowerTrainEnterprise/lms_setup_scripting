@@ -40,6 +40,15 @@ chmod 600 ~/.ssh/id_rsa_powertraininc_codespace
 chmod 600 ~/.ssh/id_rsa_powertraininc_codespace.pub
 
 git submodule update --init
+git config core.fileMode false
+git config core.sharedRepository group
+git config --global core.autocrlf true
+
+git submodule foreach --recursive git config core.fileMode false
+git submodule foreach --recursive git config core.sharedRepository group
+git submodule foreach --recursive git config --global core.autocrlf true
+
+git lfs fetch --all
 
 su -c "psql -c \"CREATE USER root WITH PASSWORD 'root'\"" postgres
 su -c "psql -c \"ALTER USER root WITH SUPERUSER\"" postgres
